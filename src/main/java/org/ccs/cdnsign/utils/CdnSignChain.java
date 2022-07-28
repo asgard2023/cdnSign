@@ -1,3 +1,5 @@
+package org.ccs.cdnsign.utils;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +13,7 @@ import java.net.URLEncoder;
 public class CdnSignChain {
 
     static Logger logger = LoggerFactory.getLogger(CdnSignChain.class);
-    /**
-     * 签名密钥
-     */
+    //主KEY
     private final static String CDN_SIGN_KEY = "xxxxxxxxxxxx";
 
     /**
@@ -23,7 +23,7 @@ public class CdnSignChain {
      * @param seconds 秒
      * @return
      */
-    public static String signQiNiuChain(String url, int seconds) {
+    public static String signUrl(String url, int seconds) {
         if (url == null) {
             return null;
         }
@@ -102,24 +102,4 @@ public class CdnSignChain {
         return false;
     }
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        String url = "http://cdn.opendfl.org.cn/test2.jpg";
-        String urlSign = CdnSignChain.signQiNiuChain(url, 86400 * 365 * 10);
-        System.out.println("urlSign=" + urlSign);
-
-        String paramStr = urlSign.substring(urlSign.indexOf("?") + 1);
-        String[] params = paramStr.split("&");
-        String sign = null;
-        String t = null;
-        for (String param : params) {
-            if (param.startsWith("sign=")) {
-                sign = param.substring("sign=".length());
-            }
-            if (param.startsWith("t=")) {
-                t = param.substring("t=".length());
-            }
-        }
-        boolean isValid = checkSign("/test2.jpg", sign, t);
-        System.out.println("sign=" + sign + " t=" + t + " isValid=" + isValid);
-    }
 }

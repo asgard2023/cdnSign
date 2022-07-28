@@ -1,3 +1,5 @@
+package org.ccs.cdnsign.utils;
+
 import java.security.MessageDigest;
 
 public class MD5Util {
