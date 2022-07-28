@@ -4,9 +4,9 @@ import org.ccs.cdnsign.utils.CdnSignChain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class CdnSignChainTest {
+class CdnSignChainTest {
     @Test
-    public void signUrl() {
+    void signUrl() {
         String url = "http://cdn.opendfl.org.cn/test2.jpg";
         String urlSign = CdnSignChain.signUrl(url, 60);
         System.out.println("urlSign=" + urlSign);
@@ -25,14 +25,14 @@ public class CdnSignChainTest {
         }
         boolean isValid = CdnSignChain.checkSign("/test2.jpg", sign, t);
         System.out.println("sign=" + sign + " t=" + t + " isValid=" + isValid);
-        Assertions.assertTrue(isValid, "signUrl:"+url);
+        Assertions.assertTrue(isValid, "signUrl:" + url);
     }
 
     @Test
-    public void signUrl2() {
+    void signUrl2() {
         String url = "http://cdn.opendfl.org.cn/test2.jpg";
         //签名时间10年
-        String urlSign = CdnSignChain.signUrl(url, 365*86400*10);
+        String urlSign = CdnSignChain.signUrl(url, 365 * 86400 * 10);
         System.out.println("urlSign=" + urlSign);
 
         String paramStr = urlSign.substring(urlSign.indexOf("?") + 1);
@@ -49,6 +49,6 @@ public class CdnSignChainTest {
         }
         boolean isValid = CdnSignChain.checkSign("/test2.jpg", sign, t);
         System.out.println("sign=" + sign + " t=" + t + " isValid=" + isValid);
-        Assertions.assertTrue(isValid, "signUrl:"+url);
+        Assertions.assertTrue(isValid, "signUrl:" + url);
     }
 }

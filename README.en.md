@@ -1,4 +1,4 @@
-# cdn back-to-source authentication signature algorithm
+# cdn back-to-source authentication signature algorithm(nginx+lua)
 
 #### introduce
 Back-to-origin authentication of cdn images or files
@@ -14,11 +14,12 @@ Based on openresty's nginx+lua, the performance is very good.
 #### Installation Tutorial
 
 1. Install openresty (omitted)
-2. lua configuration, see cdnSign.lua
-3. nginx, see cdnAuth.conf
+2. lua configuration, see src/openresty/cdnSign.lua
+3. nginx, see src/openresty/cdnAuth.conf
 
 #### demo address
 
 * lua test: http://175.178.252.112/lua2
+* Signature generation: see: src/test/java/utils/CdnSignChainTest.java
 * cdn authentication: http://175.178.252.112/cdnAuth?sign=c55dcc956a25d15722b06f768b7c89f9&t=62fe50a0&path=/test2.jpg  
   Note: This signature is valid for 10 years, i.e. (expires after July 28, 2032)
