@@ -1,37 +1,24 @@
-# cdn回源鉴权签名算法
+# cdn back-to-source authentication signature algorithm
 
-#### Description
-cdn图片或文件的回源鉴权
+#### introduce
+Back-to-origin authentication of cdn images or files
+Support Qiniu, Ali, Tencent, etc. In theory, as long as the cdn that supports back-to-source authentication can use this solution.
 
 
 #### Software Architecture
-Software architecture description
-
-#### Installation
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Instructions
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+Software Architecture Description
+Based on openresty's nginx+lua, the performance is very good.
 
 
-#### Gitee Feature
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### Installation Tutorial
+
+1. Install openresty (omitted)
+2. lua configuration, see cdnSign.lua
+3. nginx, see cdnAuth.conf
+
+#### demo address
+
+* lua test: http://175.178.252.112/lua2
+* cdn authentication: http://175.178.252.112/cdnAuth?sign=c55dcc956a25d15722b06f768b7c89f9&t=62fe50a0&path=/test2.jpg
+  Note: This signature is valid for 10 years, i.e. (expires after July 28, 2032)
