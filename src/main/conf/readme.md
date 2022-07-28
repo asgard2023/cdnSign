@@ -12,3 +12,7 @@
     <url-pattern>/cdnauth</url-pattern>
 </servlet-mapping>
 ```
+
+## springboot模式，已配好servlet
+### 访问地址
+http://localhost:8080/cdnauth?sign=c55dcc956a25d15722b06f768b7c89f9&t=62fe50a0&path=/test2.jpg
