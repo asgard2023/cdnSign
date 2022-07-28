@@ -1,4 +1,5 @@
 # java版的cdn回源鉴权
+如果要Nginx+lua的回源鉴权，不需要这套java版的，为了方便验签名写了CdnSignChainTest，顺便把java版的代码一起写完了而已。
 
 ## 在springmvc的web.xml加入servlet配置
 
