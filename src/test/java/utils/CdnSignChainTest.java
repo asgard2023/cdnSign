@@ -31,7 +31,8 @@ public class CdnSignChainTest {
     @Test
     public void signUrl2() {
         String url = "http://cdn.opendfl.org.cn/test2.jpg";
-        String urlSign = CdnSignChain.signUrl(url, 60);
+        //签名时间10年
+        String urlSign = CdnSignChain.signUrl(url, 365*86400*10);
         System.out.println("urlSign=" + urlSign);
 
         String paramStr = urlSign.substring(urlSign.indexOf("?") + 1);
