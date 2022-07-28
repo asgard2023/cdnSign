@@ -4,11 +4,11 @@
 
 ```xml
 <servlet>
-    <servlet-name>org.ccs.cdnsign.servlet.CdnServlet</servlet-name>
+    <servlet-name>cdnServlet</servlet-name>
     <servlet-class>servlet.org.ccs.cdnsign.servlet.CdnServlet</servlet-class>
 </servlet>
 <servlet-mapping>
-    <servlet-name>org.ccs.cdnsign.servlet.CdnServlet</servlet-name>
+    <servlet-name>cdnServlet</servlet-name>
     <url-pattern>/cdnauth</url-pattern>
 </servlet-mapping>
 ```
