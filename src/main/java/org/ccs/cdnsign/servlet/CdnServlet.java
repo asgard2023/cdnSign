@@ -33,6 +33,9 @@ public class CdnServlet extends HttpServlet {
     private static Set<String> trustSourceIps = new HashSet<String>() {{
         add("localhost");
     }};
+    /**
+     * 直接信任sourceCdn指定的key
+     */
     private static final String SOURCE_CDN_TRUST = "cdnTrust";
     //是否ts不鉴权
     private static final boolean IS_TRUST_TS = true;

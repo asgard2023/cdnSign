@@ -8,6 +8,8 @@ local path = nil
 local sourceCdn = nil;
 -- 签名密钥
 local signKey = 'xxxxxxxxxxxx'
+-- 是否支持ts文件不检查
+local trustTs = true
 local request_method = ngx.var.request_method
 
 -- 获取参数值
@@ -41,6 +43,11 @@ local function trimUrlParam(url)
     return url;
 end
 
+-- 检查String是否以endStr结尾
+local function ends(String, endStr)
+    return endStr == '' or string.sub(String, -string.len(endStr)) == endStr
+end
+
 -- 获取请求ip
 local function getRequestIp()
     local clientIP = ngx.req.get_headers()["X-Real-IP"]
@@ -69,10 +76,19 @@ end
 
 -- 验证签名的sign,t是否有效
 local function validSign(path, sign, t)
+    if path == nil then
+        return false;
+    end
+
+    -- 支持.ts文件直接通过
+    if trustTs and ends(path, ".ts") then
+        return true;
+    end
+
     if t == nill then
-        t = 0;
         return false
     end
+
     local tt = t;
     t = '0x' .. t
     if pcall(function()

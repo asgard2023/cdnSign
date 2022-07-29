@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.ccs.cdnsign</groupId>
     <artifactId>cdnsign</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <name>cdnsign</name>
     <description>cdn回源鉴权签名算法</description>
     <properties>
