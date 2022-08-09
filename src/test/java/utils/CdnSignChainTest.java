@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class CdnSignChainTest {
     @Test
     void signUrl() {
-        String url = "http://cdn.opendfl.org.cn/test2.jpg";
+        String url = "http://cdntest.opendfl.org.cn/t2.jpg";
         String urlSign = CdnSignChain.signUrl(url, 60);
         System.out.println("urlSign=" + urlSign);
 

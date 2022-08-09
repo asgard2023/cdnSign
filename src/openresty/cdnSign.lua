@@ -123,7 +123,7 @@ local isValid = validSign(path, sign, t)
 
 if isValid == false then
     --ngx.say('fail:',getRequestIp())
-    ngx.exit(ngx.HTTP_FORBIDDEN)
+    ngx.exit(ngx.HTTP_UNAUTHORIZED)
 else
     ngx.say('ok')
 end
